@@ -1,0 +1,11 @@
+{
+  "variant": "A",
+  "description": "Full Pipeline (baseline)",
+  "n_evaluated": 5,
+  "n_skipped": 0,
+  "faithfulness": null,
+  "answer_relevancy": null,
+  "context_precision": null,
+  "context_recall": null,
+  "error": "All metrics must be initialised metric objects, e.g: metrics=[BleuScore(), AspectCritic()]"
+}

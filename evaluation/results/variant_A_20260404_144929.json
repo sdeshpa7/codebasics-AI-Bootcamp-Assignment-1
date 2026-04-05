@@ -1,0 +1,22 @@
+{
+  "variant": "A",
+  "description": "Full Pipeline (baseline)",
+  "n_evaluated": 1,
+  "n_skipped": 1,
+  "faithfulness": 0.25,
+  "answer_relevancy": 0.0,
+  "context_precision": 0.75,
+  "context_recall": 1.0,
+  "overall_score": 0.5,
+  "per_sample": [
+    {
+      "faithfulness": 0.25,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.75,
+      "context_recall": 1.0,
+      "overall": 0.5,
+      "id": "ENG-002",
+      "collection": "engineering"
+    }
+  ]
+}

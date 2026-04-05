@@ -1,0 +1,20 @@
+{
+  "timestamp": "20260404_144531",
+  "n_questions": 2,
+  "evaluator_model": "llama-3.1-8b-instant",
+  "pipeline_model": "openai/gpt-oss-20b",
+  "metric_range": "0.0 \u2013 1.0 (higher is better)",
+  "results": [
+    {
+      "variant": "A",
+      "description": "Full Pipeline (baseline)",
+      "n_evaluated": 2,
+      "n_skipped": 0,
+      "faithfulness": null,
+      "answer_relevancy": 0.3325,
+      "context_precision": 0.8021,
+      "context_recall": null,
+      "overall_score": 0.5673
+    }
+  ]
+}

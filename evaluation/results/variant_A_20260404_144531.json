@@ -1,0 +1,31 @@
+{
+  "variant": "A",
+  "description": "Full Pipeline (baseline)",
+  "n_evaluated": 2,
+  "n_skipped": 0,
+  "faithfulness": null,
+  "answer_relevancy": 0.3325,
+  "context_precision": 0.8021,
+  "context_recall": null,
+  "overall_score": 0.5673,
+  "per_sample": [
+    {
+      "faithfulness": null,
+      "answer_relevancy": 0.6649,
+      "context_precision": 0.8542,
+      "context_recall": null,
+      "overall": 0.7595,
+      "id": "ENG-001",
+      "collection": "engineering"
+    },
+    {
+      "faithfulness": null,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.75,
+      "context_recall": null,
+      "overall": 0.375,
+      "id": "ENG-002",
+      "collection": "engineering"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+variant,description,n_evaluated,n_skipped,faithfulness,answer_relevancy,context_precision,context_recall,overall_score
+A,Full Pipeline (baseline),5,0,0.55,0.4641,0.7208,1.0,0.6837

@@ -1,0 +1,30 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Frontend dependencies
+node_modules/
+frontend/node_modules/
+.next/
+dist/
+build/
+
+# Environment variables (Crucial for Security!)
+.env
+
+# Local Data and Databases (RBAC safety)
+data/
+*.db
+projects/
+__pycache__
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,370 @@
+[
+  {
+    "id": "ENG-001",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What was the overall platform availability for FinSolve in 2024?",
+    "ground_truth": "FinSolve's overall platform availability in 2024 was 99.964%.",
+    "context_hint": "system_sla_report_2024.md — Executive Summary"
+  },
+  {
+    "id": "ENG-002",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What was the Payment Service uptime target and actual uptime in 2024?",
+    "ground_truth": "The Payment Service had a target uptime of 99.99% and achieved an actual uptime of 99.989% in 2024.",
+    "context_hint": "system_sla_report_2024.md — Service Level Agreements"
+  },
+  {
+    "id": "ENG-003",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "How many total incidents were recorded across FinSolve engineering systems in 2024?",
+    "ground_truth": "A total of 18 incidents were recorded in 2024: 3 P0 (Critical), 5 P1 (High), 6 P2 (Medium), and 4 P3 (Low).",
+    "context_hint": "incident_report_log.md — Executive Summary"
+  },
+  {
+    "id": "ENG-004",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What caused incident INC-2024-004 and how was it resolved?",
+    "ground_truth": "INC-2024-004 was a P0 Payment Gateway outage on Feb 5, 2024 caused by a third-party payment gateway API schema change that was not communicated. It was resolved by reverting to the previous adapter version and coordinating with the vendor regarding the breaking change.",
+    "context_hint": "incident_report_log.md — Incident Log"
+  },
+  {
+    "id": "ENG-005",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What was FinSolve's engineering team velocity growth from Q1 to Q4 in 2024?",
+    "ground_truth": "The engineering team's average velocity grew from 165 story points per sprint in Q1 to 212 story points per sprint in Q4, representing a 28% growth.",
+    "context_hint": "sprint_metrics_2024.md — Executive Summary"
+  },
+  {
+    "id": "ENG-006",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "How many total story points were delivered by the engineering team in 2024?",
+    "ground_truth": "The engineering team delivered a total of 4,982 story points in 2024 with a completion rate of 94.2%.",
+    "context_hint": "sprint_metrics_2024.md — Key Metrics"
+  },
+  {
+    "id": "ENG-007",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What percentage reduction in MTTR did FinSolve achieve by Q4 2024 compared to Q1?",
+    "ground_truth": "FinSolve achieved a 35% reduction in Mean Time To Resolution (MTTR) by Q4 2024 compared to Q1 2024.",
+    "context_hint": "incident_report_log.md — Executive Summary"
+  },
+  {
+    "id": "ENG-008",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What technology stack does FinSolve use for its mobile applications?",
+    "ground_truth": "FinSolve's mobile applications are developed using Swift for iOS and Kotlin for Android, providing biometric authentication, push notifications, and offline capabilities.",
+    "context_hint": "engineering_master_doc.md — Client Applications"
+  },
+  {
+    "id": "ENG-009",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What is the RTO target for the Payment Service according to FinSolve's SLA definitions?",
+    "ground_truth": "The Recovery Time Objective (RTO) target for the Payment Service is 15 minutes.",
+    "context_hint": "system_sla_report_2024.md — Target SLA Definitions"
+  },
+  {
+    "id": "ENG-010",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What root cause led to the Redis cache hit ratio dropping to 35% in August 2024 (INC-2024-016)?",
+    "ground_truth": "The cache hit ratio dropped to 35% (from a normal 78%) due to memory fragmentation caused by large values being stored in Redis. It was resolved by implementing compression for large cached objects and optimizing TTL settings.",
+    "context_hint": "incident_report_log.md — Incident Log INC-2024-016"
+  },
+  {
+    "id": "FIN-001",
+    "collection": "finance",
+    "access_role": "Finance",
+    "question": "What was FinSolve's total revenue for 2024?",
+    "ground_truth": "Based on the financial summary, FinSolve's total revenue for 2024 is documented in the financial_summary.docx and quarterly_financial_report.docx. The quarterly reports show cumulative revenue figures for all four quarters of 2024.",
+    "context_hint": "financial_summary.docx / quarterly_financial_report.docx"
+  },
+  {
+    "id": "FIN-002",
+    "collection": "finance",
+    "access_role": "Finance",
+    "question": "What was the largest vendor payment made by FinSolve in 2024?",
+    "ground_truth": "The largest vendor payment details are documented in the vendor_payments_summary.docx which lists all major vendor disbursements for 2024.",
+    "context_hint": "vendor_payments_summary.docx"
+  },
+  {
+    "id": "FIN-003",
+    "collection": "finance",
+    "access_role": "Finance",
+    "question": "Which department had the highest budget allocation in 2024?",
+    "ground_truth": "The department with the highest budget allocation in 2024 is detailed in the department_budget_2024.docx, which covers all departmental budget breakdowns.",
+    "context_hint": "department_budget_2024.docx"
+  },
+  {
+    "id": "FIN-004",
+    "collection": "finance",
+    "access_role": "Finance",
+    "question": "What were FinSolve's key financial highlights for Q3 2024?",
+    "ground_truth": "FinSolve's Q3 2024 financial highlights are documented in the quarterly_financial_report.docx, including revenue, operating expenses, and net income figures for the third quarter.",
+    "context_hint": "quarterly_financial_report.docx — Q3"
+  },
+  {
+    "id": "FIN-005",
+    "collection": "finance",
+    "access_role": "Finance",
+    "question": "What was the Technology department's allocated budget for 2024?",
+    "ground_truth": "The Technology department's budget allocation for 2024 is specified in the department_budget_2024.docx document.",
+    "context_hint": "department_budget_2024.docx — Technology"
+  },
+  {
+    "id": "FIN-006",
+    "collection": "finance",
+    "access_role": "Finance",
+    "question": "What was the overall expense-to-revenue ratio in the financial summary?",
+    "ground_truth": "The expense-to-revenue ratio for FinSolve is detailed in the financial_summary.docx, which documents total operating expenditures relative to total revenues.",
+    "context_hint": "financial_summary.docx"
+  },
+  {
+    "id": "FIN-007",
+    "collection": "finance",
+    "access_role": "Finance",
+    "question": "Which vendor received the highest payment volume from FinSolve in 2024?",
+    "ground_truth": "The vendor with the highest payment volume in 2024 is identified in the vendor_payments_summary.docx, which lists all vendor payment records and totals.",
+    "context_hint": "vendor_payments_summary.docx"
+  },
+  {
+    "id": "FIN-008",
+    "collection": "finance",
+    "access_role": "Finance",
+    "question": "What was FinSolve's net profit margin according to the financial summary?",
+    "ground_truth": "FinSolve's net profit margin is documented in the financial_summary.docx as part of the key financial ratios and performance indicators section.",
+    "context_hint": "financial_summary.docx — Financial Ratios"
+  },
+  {
+    "id": "HR-001",
+    "collection": "hr",
+    "access_role": "HR",
+    "question": "How many annual privilege leaves are employees entitled to at FinSolve?",
+    "ground_truth": "FinSolve employees are entitled to annual leave as specified in the employee handbook and HR data. The leave entitlement details are documented in the HR policy covering privilege leave.",
+    "context_hint": "hr_data.csv / employee_handbook.pdf"
+  },
+  {
+    "id": "HR-002",
+    "collection": "hr",
+    "access_role": "HR",
+    "question": "What is the average performance rating across all active employees?",
+    "ground_truth": "The average performance rating across active employees can be computed from the HR data CSV, which includes a performance_rating column for each employee.",
+    "context_hint": "hr_data.csv — performance_rating column"
+  },
+  {
+    "id": "HR-003",
+    "collection": "hr",
+    "access_role": "HR",
+    "question": "How many employees are currently active at FinSolve?",
+    "ground_truth": "The total number of currently active employees is recorded in the hr_data.csv file under the employment_status column. All records with status 'Active' represent the current headcount.",
+    "context_hint": "hr_data.csv — employment_status"
+  },
+  {
+    "id": "HR-004",
+    "collection": "hr",
+    "access_role": "HR",
+    "question": "What is the employee attrition rate based on exit records in the HR data?",
+    "ground_truth": "The attrition rate can be derived from the HR data CSV by comparing the count of employees with a non-null exit_date to the total employee count, reflecting voluntary and involuntary separations.",
+    "context_hint": "hr_data.csv — exit_date column"
+  },
+  {
+    "id": "HR-005",
+    "collection": "hr",
+    "access_role": "HR",
+    "question": "Which department has the highest average attendance percentage?",
+    "ground_truth": "The department with the highest average attendance percentage can be determined from the hr_data.csv by averaging the attendance_pct column grouped by department.",
+    "context_hint": "hr_data.csv — attendance_pct, department columns"
+  },
+  {
+    "id": "HR-006",
+    "collection": "hr",
+    "access_role": "HR",
+    "question": "What is the gender distribution across all FinSolve employees?",
+    "ground_truth": "The gender distribution of all employees is recorded in the hr_data.csv under the gender column, listing Male, Female, and Non-Binary employees.",
+    "context_hint": "hr_data.csv — gender column"
+  },
+  {
+    "id": "HR-007",
+    "collection": "hr",
+    "access_role": "HR",
+    "question": "What is the average leave balance remaining for employees in the Finance department?",
+    "ground_truth": "The average leave balance for Finance department employees can be calculated from the hr_data.csv by filtering on department='Finance' and averaging the leave_balance column.",
+    "context_hint": "hr_data.csv — leave_balance, department columns"
+  },
+  {
+    "id": "HR-008",
+    "collection": "hr",
+    "access_role": "HR",
+    "question": "What employment type options exist at FinSolve, and what percentage of employees are Full-Time?",
+    "ground_truth": "Employment types at FinSolve are documented in the hr_data.csv under the employment_type column. The majority of employees are Full-Time, with the exact percentage derivable from the dataset.",
+    "context_hint": "hr_data.csv — employment_type column"
+  },
+  {
+    "id": "MKT-001",
+    "collection": "marketing",
+    "access_role": "Marketing",
+    "question": "What was FinSolve's total marketing budget and overall ROI for 2024?",
+    "ground_truth": "FinSolve's total marketing budget and ROI for 2024 are documented in the marketing_report_2024.docx, which consolidates all annual marketing performance data.",
+    "context_hint": "marketing_report_2024.docx — Budget and ROI sections"
+  },
+  {
+    "id": "MKT-002",
+    "collection": "marketing",
+    "access_role": "Marketing",
+    "question": "Which marketing campaign generated the highest number of leads in Q1 2024?",
+    "ground_truth": "The campaign with the highest lead generation in Q1 2024 is identified in the marketing_report_q1_2024.docx, which breaks down campaign-wise lead performance for the first quarter.",
+    "context_hint": "marketing_report_q1_2024.docx — Campaign Performance"
+  },
+  {
+    "id": "MKT-003",
+    "collection": "marketing",
+    "access_role": "Marketing",
+    "question": "What were the key highlights from FinSolve's Q3 2024 marketing activities?",
+    "ground_truth": "The key marketing highlights for Q3 2024 are documented in the marketing_report_q3_2024.docx, covering campaign performance, lead generation, and channel effectiveness for July-September 2024.",
+    "context_hint": "marketing_report_q3_2024.docx"
+  },
+  {
+    "id": "MKT-004",
+    "collection": "marketing",
+    "access_role": "Marketing",
+    "question": "What was the customer acquisition cost (CAC) trend across 2024?",
+    "ground_truth": "The customer acquisition cost trends across 2024 are documented in the customer_acquisition_report.docx, which tracks CAC by quarter and marketing channel.",
+    "context_hint": "customer_acquisition_report.docx"
+  },
+  {
+    "id": "MKT-005",
+    "collection": "marketing",
+    "access_role": "Marketing",
+    "question": "Which marketing channels delivered the best campaign performance in 2024?",
+    "ground_truth": "The best-performing marketing channels are identified in the campaign_performance_data.docx, which benchmarks digital, social, email, and offline channel performance across all 2024 campaigns.",
+    "context_hint": "campaign_performance_data.docx"
+  },
+  {
+    "id": "MKT-006",
+    "collection": "marketing",
+    "access_role": "Marketing",
+    "question": "What was the total number of new customers acquired by FinSolve in 2024?",
+    "ground_truth": "The total number of new customers acquired in 2024 is documented in the customer_acquisition_report.docx, which consolidates acquisition figures across all channels and regions.",
+    "context_hint": "customer_acquisition_report.docx — Acquisition Totals"
+  },
+  {
+    "id": "MKT-007",
+    "collection": "marketing",
+    "access_role": "Marketing",
+    "question": "How did Q4 2024 marketing performance compare to Q3 2024?",
+    "ground_truth": "The quarter-over-quarter comparison between Q3 and Q4 2024 marketing performance is available in the marketing_report_q4_2024.docx, which includes a comparative analysis with Q3 results.",
+    "context_hint": "marketing_report_q4_2024.docx — QoQ Comparison"
+  },
+  {
+    "id": "MKT-008",
+    "collection": "marketing",
+    "access_role": "Marketing",
+    "question": "What digital marketing channels were used in Q2 2024 and what were their conversion rates?",
+    "ground_truth": "Q2 2024 digital marketing channel usage and conversion rates are documented in the marketing_report_q2_2024.docx, which covers performance of channels such as social media, paid search, email, and content marketing.",
+    "context_hint": "marketing_report_q2_2024.docx — Channel Performance"
+  },
+  {
+    "id": "GEN-001",
+    "collection": "general",
+    "access_role": "General",
+    "question": "What is FinSolve's annual leave policy for employees?",
+    "ground_truth": "FinSolve's annual leave policy is described in the employee_handbook.pdf, covering types of leave available including privilege/annual leave, sick leave, casual leave, and special leave entitlements.",
+    "context_hint": "employee_handbook.pdf — Leave Policy"
+  },
+  {
+    "id": "GEN-002",
+    "collection": "general",
+    "access_role": "General",
+    "question": "What is FinSolve's code of conduct policy regarding conflicts of interest?",
+    "ground_truth": "FinSolve's code of conduct policy on conflicts of interest is outlined in the employee_handbook.pdf, specifying disclosure requirements and prohibited activities when personal interests may conflict with company interests.",
+    "context_hint": "employee_handbook.pdf — Code of Conduct"
+  },
+  {
+    "id": "GEN-003",
+    "collection": "general",
+    "access_role": "General",
+    "question": "What is the work-from-home policy at FinSolve?",
+    "ground_truth": "FinSolve's work-from-home (remote work) policy is documented in the employee_handbook.pdf, specifying eligibility criteria, approval process, and expectations for employees working remotely.",
+    "context_hint": "employee_handbook.pdf — Remote Work Policy"
+  },
+  {
+    "id": "GEN-004",
+    "collection": "general",
+    "access_role": "General",
+    "question": "What is the grievance redressal process for employees at FinSolve?",
+    "ground_truth": "The employee grievance redressal process is outlined in the employee_handbook.pdf, detailing the steps an employee should follow to raise a formal complaint and the timeline for resolution.",
+    "context_hint": "employee_handbook.pdf — Grievance Policy"
+  },
+  {
+    "id": "GEN-005",
+    "collection": "general",
+    "access_role": "General",
+    "question": "What are the performance review timelines and process at FinSolve?",
+    "ground_truth": "FinSolve's performance review process, including annual and mid-year review timelines, rating scales, and feedback procedures, is documented in the employee_handbook.pdf.",
+    "context_hint": "employee_handbook.pdf — Performance Management"
+  },
+  {
+    "id": "GEN-006",
+    "collection": "general",
+    "access_role": "General",
+    "question": "What is FinSolve's policy on professional development and training?",
+    "ground_truth": "FinSolve's professional development and training policy, including access to learning platforms, training budgets, and manager approval processes, is detailed in the employee_handbook.pdf.",
+    "context_hint": "employee_handbook.pdf — Learning & Development"
+  },
+  {
+    "id": "GEN-007",
+    "collection": "general",
+    "access_role": "General",
+    "question": "What is the notice period required when an employee resigns from FinSolve?",
+    "ground_truth": "The notice period requirements for employee resignation are specified in the employee_handbook.pdf under the separation policies section, which outlines notice period duration by designation level.",
+    "context_hint": "employee_handbook.pdf — Separation Policy"
+  },
+  {
+    "id": "GEN-008",
+    "collection": "general",
+    "access_role": "General",
+    "question": "What is FinSolve's IT acceptable use policy for company devices and systems?",
+    "ground_truth": "FinSolve's IT acceptable use policy is described in the employee_handbook.pdf, covering permitted and prohibited uses of company devices, software, networks, and data.",
+    "context_hint": "employee_handbook.pdf — IT Acceptable Use Policy"
+  },
+  {
+    "id": "CROSS-001",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "How many engineering sprints were completed in Q1 2024 and what was the average velocity?",
+    "ground_truth": "Six sprints were completed in Q1 2024 with a total of 927 story points delivered and an average velocity of 165 story points per sprint. The Q1 completion rate was 91.9%.",
+    "context_hint": "sprint_metrics_2024.md — Q1 2024"
+  },
+  {
+    "id": "CROSS-002",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What was the target and actual error rate for the API Gateway in 2024?",
+    "ground_truth": "The API Gateway had a target error rate of less than 0.05% and achieved an actual average error rate of 0.087% overall across all services in 2024.",
+    "context_hint": "system_sla_report_2024.md — SLA Definitions"
+  },
+  {
+    "id": "CROSS-003",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What is FinSolve's cloud infrastructure setup?",
+    "ground_truth": "FinSolve runs on AWS (EC2, ECS, Lambda) with Kubernetes for orchestration and Cloudflare for CDN and DDoS protection. The data layer uses PostgreSQL for transactional data, MongoDB for user profiles, Redis for caching, and Amazon S3 for documents and backups.",
+    "context_hint": "engineering_master_doc.md — System Architecture"
+  },
+  {
+    "id": "CROSS-004",
+    "collection": "engineering",
+    "access_role": "Engineering",
+    "question": "What was the total number of features shipped and bugs fixed by the engineering team across all of 2024?",
+    "ground_truth": "Across all of 2024, FinSolve's engineering team shipped 156 features and fixed 287 bugs, completing 104 total deployments at an average of 2 deployments per week.",
+    "context_hint": "sprint_metrics_2024.md — Key Metrics"
+  }
+]

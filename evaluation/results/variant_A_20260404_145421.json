@@ -1,0 +1,58 @@
+{
+  "variant": "A",
+  "description": "Full Pipeline (baseline)",
+  "n_evaluated": 5,
+  "n_skipped": 0,
+  "faithfulness": 0.55,
+  "answer_relevancy": 0.4641,
+  "context_precision": 0.7208,
+  "context_recall": 1.0,
+  "overall_score": 0.6837,
+  "per_sample": [
+    {
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.6649,
+      "context_precision": 0.8542,
+      "context_recall": 1.0,
+      "overall": 0.7548,
+      "id": "ENG-001",
+      "collection": "engineering"
+    },
+    {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.75,
+      "context_recall": 1.0,
+      "overall": 0.6875,
+      "id": "ENG-002",
+      "collection": "engineering"
+    },
+    {
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.7844,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "overall": 0.8211,
+      "id": "ENG-003",
+      "collection": "engineering"
+    },
+    {
+      "faithfulness": 0.25,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 1.0,
+      "overall": 0.3125,
+      "id": "ENG-004",
+      "collection": "engineering"
+    },
+    {
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.871,
+      "context_precision": 1.0,
+      "context_recall": null,
+      "overall": 0.7903,
+      "id": "ENG-005",
+      "collection": "engineering"
+    }
+  ]
+}

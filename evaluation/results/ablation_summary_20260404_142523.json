@@ -1,0 +1,19 @@
+{
+  "timestamp": "20260404_142523",
+  "n_questions": 5,
+  "evaluator_model": "llama3-8b-8192",
+  "pipeline_model": "openai/gpt-oss-20b",
+  "results": [
+    {
+      "variant": "A",
+      "description": "Full Pipeline (baseline)",
+      "n_evaluated": 5,
+      "n_skipped": 0,
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "error": "All metrics must be initialised metric objects, e.g: metrics=[BleuScore(), AspectCritic()]"
+    }
+  ]
+}
