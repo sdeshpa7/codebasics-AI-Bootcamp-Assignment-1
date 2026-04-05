@@ -224,7 +224,7 @@ _BUSINESS_KEYWORDS: set[str] = {
     "operations", "legal", "admin", "data", "technology",
 }
 
-_OFF_TOPIC_SCORE_THRESHOLD = 0.20   # if route_score < this → off-topic
+_OFF_TOPIC_SCORE_THRESHOLD = 0.12   # lowered to prevent false-negative blocks for valid queries
 
 
 def _check_off_topic(

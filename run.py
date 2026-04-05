@@ -42,6 +42,7 @@ _ROUTE_QUERY_PREFIX: dict[str, str] = {
     "Engineering": "engineering technical SLA incident sprint architecture: ",
     "Marketing":   "marketing campaign lead ROI acquisition brand: ",
     "C-Level":     "executive summary strategy performance company overview: ",
+    "General":     "employee handbook general policy leave holiday code conduct: ",
 }
 
 
@@ -111,15 +112,13 @@ def answer(
         return guard_result.message
 
     # ── 3. RBAC route check ──────────────────────────────────────────────────
+    # Priority 1: Employment Type Guardrail (Interns/Contractors blocked entirely)
+    if employment_type in ["Contract", "Intern"]:
+        return "🚫 Access denied: this information is not allowed to contractual employees and interns."
+
+    # Priority 2: Department/Role Authorization
     if not route_match.allowed:
-        if employment_type in ["Contract", "Intern"]:
-            return "🚫 Access denied: this information is not allowed to contractual employees and interns. Please contact your supervisor."
-        
-        return (
-            f"🚫 Access denied. Your query is about **{route_match.route}** topics, "
-            f"but your access roles ({', '.join(user_access_roles)}) do not include "
-            f"**{route_match.route}** access. Please contact your administrator."
-        )
+        return "🚫 Access denied. This information is not allowed based on your role."
 
     # ── 4. Qdrant retrieval ───────────────────────────────────────────────────
     from app.embeddings import _get_model   # reuse cached model

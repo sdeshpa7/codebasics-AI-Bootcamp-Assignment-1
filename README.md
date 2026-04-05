@@ -23,7 +23,7 @@ FinSolve uses a multi-tiered access model to manage data security. Access is det
 | **Contract/Intern** | **Highly Restricted** | Limited access with custom security messaging for out-of-bounds queries. |
 
 > [!IMPORTANT]
-> **Contractors and Interns** receive a specialized security block: *"🚫 Access denied: this information is not allowed to contractual employees and interns. Please contact your supervisor."*
+> **Contractors and Interns** receive a specialized security block: *"🚫 Access denied: this information is not allowed to contractual employees and interns."*
 
 ---
 

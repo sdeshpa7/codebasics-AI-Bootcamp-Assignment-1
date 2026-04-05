@@ -2,39 +2,21 @@
 app/semantic_routing.py
 Builds 5 semantic routes and classifies incoming queries into the appropriate domain.
 
-Routes: Finance | Engineering | Marketing | HR | C-Level
-
-Each route is defined by representative utterances.  At build time the router
-computes a single centroid embedding (mean of utterance embeddings) per route.
-At query time it picks the route whose centroid is closest to the query vector.
+Routes: Finance | Engineering | Marketing | HR | C-Level | General
 
 Access control:
-    The router checks whether the user's access_roles permit the matched route.
-    Users with a common role (C-Level or General) are always allowed through —
-    the Qdrant RBAC filter will scope results to only what they can see.
-    Restricted department routes (Finance, Engineering, Marketing, HR) are only
-    blocked when the user has no department-level overlap AND no common role that
-    maps to a collection visible to them.
+    - If best_route is "General" -> Allowed for all.
+    - If best_route matches a department -> Only allowed if user has that specific role or C-Level.
 """
 
 from dataclasses import dataclass
-
 import numpy as np
 from qdrant_client.models import FieldCondition, Filter, MatchAny
 from sentence_transformers import SentenceTransformer
-
 from app.config import settings
 
-# Roles that grant access to general/cross-department documents.
-# Users holding any of these roles are always permitted past the route gate;
-# Qdrant's payload filter will restrict results to what they can actually see.
+# Only C-Level has global bypass across all categories.
 _COMMON_ROLES: frozenset[str] = frozenset(settings.chunk_common_roles)
-
-# ---------------------------------------------------------------------------
-# Route utterances
-# Each list contains domain-representative questions/phrases.
-# Add or remove utterances to tune routing accuracy.
-# ---------------------------------------------------------------------------
 
 ROUTE_UTTERANCES: dict[str, list[str]] = {
     "Finance": [
@@ -74,18 +56,10 @@ ROUTE_UTTERANCES: dict[str, list[str]] = {
         "What is the target audience for our product?",
     ],
     "HR": [
-        "How many leaves do I get?",
-        "What is my PTO or vacation balance limit?",
-        "What is the company leave policy?",
         "How does the employee onboarding process work?",
-        "What health and wellness benefits are available?",
         "Explain the performance review and appraisal cycle",
-        "What is the policy on remote and hybrid work?",
         "How do I apply for a promotion?",
-        "What is the code of conduct and disciplinary process?",
-        "Describe employee training and development programmes",
         "What is the grievance redressal procedure?",
-        "What are the rules around expense reimbursement?",
     ],
     "C-Level": [
         "Give me an executive summary of company performance",
@@ -100,6 +74,14 @@ ROUTE_UTTERANCES: dict[str, list[str]] = {
         "Explain the company expansion strategy into new markets",
     ],
     "General": [
+        "How many leaves do I get?",
+        "What is my PTO or vacation balance limit?",
+        "What is the company leave policy?",
+        "What health and wellness benefits are available?",
+        "What is the policy on remote and hybrid work?",
+        "What is the code of conduct and disciplinary process?",
+        "Describe employee training and development programmes",
+        "What are the rules around expense reimbursement?",
         "What are the company's core values?",
         "Where is the main office located?",
         "What is the dress code policy?",
@@ -111,28 +93,13 @@ ROUTE_UTTERANCES: dict[str, list[str]] = {
     ],
 }
 
-
-# ---------------------------------------------------------------------------
-# Data model
-# ---------------------------------------------------------------------------
-
 @dataclass
 class RouteMatch:
-    route: str           # matched route name e.g. "Finance"
-    score: float         # cosine similarity score (0–1, higher = more confident)
-    allowed: bool        # True if the user's access_roles include this route
-
-
-# ---------------------------------------------------------------------------
-# Router class
-# ---------------------------------------------------------------------------
+    route: str
+    score: float
+    allowed: bool
 
 class SemanticRouter:
-    """
-    Classifies a query into one of the 5 department routes using cosine
-    similarity against pre-computed route centroid embeddings.
-    """
-
     def __init__(
         self,
         utterances: dict[str, list[str]] = ROUTE_UTTERANCES,
@@ -142,52 +109,19 @@ class SemanticRouter:
         try:
             self._model = SentenceTransformer(model_name)
         except Exception:
-            print("Network unavailable, loading router model from local cache…")
             self._model = SentenceTransformer(model_name, local_files_only=True)
         self._centroids: dict[str, np.ndarray] = {}
         self._build(utterances)
 
     def _build(self, utterances: dict[str, list[str]]) -> None:
-        """Encode all utterances and store one mean centroid per route."""
         for route, texts in utterances.items():
-            embeddings = self._model.encode(
-                texts,
-                normalize_embeddings=True,
-                show_progress_bar=False,
-            )
-            # Mean centroid, then re-normalise so cosine sim stays in [0, 1]
+            embeddings = self._model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
             centroid = embeddings.mean(axis=0)
             norm = np.linalg.norm(centroid)
             self._centroids[route] = centroid / norm if norm > 0 else centroid
-            print(f"  Route '{route}' — {len(texts)} utterances encoded.")
-        print("Semantic router ready.\n")
 
     def route(self, query: str, user_access_roles: list[str]) -> RouteMatch:
-        """
-        Classify a query into the best-matching route and check user permission.
-
-        Args:
-            query:             The user's natural-language question.
-            user_access_roles: Roles assigned to the authenticated user
-                               (from hr_loader / employees.csv).
-
-        Returns:
-            RouteMatch with the matched route, similarity score, and access flag.
-
-        Access logic:
-            - If the user has the matched route in their roles → allowed.
-            - If the user has ANY common role (C-Level / General) → allowed.
-              Documents in general-access collections are visible to everyone;
-              Qdrant's RBAC filter will restrict results appropriately.
-            - Otherwise → denied (user has no overlap with the matched department
-              AND no common-access privilege).
-        """
-        q_vec = self._model.encode(
-            [query],
-            normalize_embeddings=True,
-            show_progress_bar=False,
-        )[0]
-
+        q_vec = self._model.encode([query], normalize_embeddings=True, show_progress_bar=False)[0]
         best_route, best_score = "", -1.0
         for route, centroid in self._centroids.items():
             score = float(np.dot(q_vec, centroid))
@@ -196,53 +130,29 @@ class SemanticRouter:
                 best_route = route
 
         roles_set = set(user_access_roles)
-
-        # Allow if the user has the specific department role OR any common role.
-        # Common-role users (General / C-Level) can ask about any topic —
-        # Qdrant will return only the chunks their roles actually permit.
+        
+        # Access Logic:
+        # 1. User has the specific department role -> Allowed.
+        # 2. Matched route is "General" (Handbook) -> Allowed.
+        # 3. User is C-Level -> Allowed.
         allowed = (
             best_route in roles_set
+            or best_route == "General"
             or bool(roles_set & _COMMON_ROLES)
         )
 
         return RouteMatch(route=best_route, score=round(best_score, 4), allowed=allowed)
 
-
-# ---------------------------------------------------------------------------
-# Qdrant access-control filter
-# ---------------------------------------------------------------------------
-
 def get_qdrant_filter(user_access_roles: list[str]) -> Filter:
-    """
-    Build a Qdrant Filter that restricts search results to points whose
-    `access_roles` payload field contains at least one of the user's roles.
-
-    Usage:
-        results = client.search(
-            collection_name=...,
-            query_vector=...,
-            query_filter=get_qdrant_filter(user_roles),
-        )
-    """
     return Filter(
         must=[
-            FieldCondition(
-                key="access_roles",
-                match=MatchAny(any=user_access_roles),
-            )
+            FieldCondition(key="access_roles", match=MatchAny(any=user_access_roles))
         ]
     )
 
-
-# ---------------------------------------------------------------------------
-# Singleton builder
-# ---------------------------------------------------------------------------
-
 _router: SemanticRouter | None = None
 
-
 def build_router() -> SemanticRouter:
-    """Return the shared SemanticRouter, building it on first call."""
     global _router
     if _router is None:
         _router = SemanticRouter()
