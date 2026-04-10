@@ -1,0 +1,6 @@
+employee_id,name,gender,role,department,access_role,designation_level,email,phone,location,date_of_birth,date_of_joining,employment_type,employment_status,manager_id,salary,leave_balance,leaves_taken,attendance_pct,performance_rating,last_review_date,exit_date
+FINEMP1010,Karthik Kuppuswamy,Male,Data Analyst,Data,Engineering,Senior,karthik.kuppuswamy@finsolve.com,+91-8910976189,Bengaluru,1981-02-18,2020-11-04,Full-Time,Active,FINEMP1156,1082675,14,19,75.0,3,2025-01-28,
+FINEMP1100,Rajesh Tiwari,Female,Data Analyst,Data,Engineering,Manager,rajesh.tiwari@finsolve.com,,Pune,1999-10-27,2024-10-19,Full-Time,Active,FINEMP1206,2419063,10,9,81.5,3,2025-06-15,
+FINEMP1132,Chitra Aggarwal,Female,Data Analyst,Data,Engineering,Mid,chitra.aggarwal@finsolve.com,+91-8904405303,Chennai,1992-08-13,2025-02-19,Full-Time,Active,FINEMP1129,1258309,14,12,77.0,3,2024-11-19,
+FINEMP1165,Krishnan Saxena,Female,Data Analyst,Data,Engineering,Mid,krishnan.saxena@finsolve.com,+91-7385570227,Delhi,1981-02-13,2022-03-24,Full-Time,Active,FINEMP1275,1430307,15,5,87.5,2,2025-05-10,
+FINEMP1173,Karthik Chopra,Male,Data Analyst,Data,Engineering,Mid,karthik.chopra@finsolve.com,+91-7707109267,Mumbai,1996-02-15,2022-08-22,Full-Time,Active,FINEMP1387,1273045,5,3,90.5,5,2025-02-23,

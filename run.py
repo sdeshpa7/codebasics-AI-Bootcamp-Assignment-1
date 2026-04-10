@@ -99,7 +99,7 @@ def answer(
     router = _get_router()
 
     # ── 1. Semantic route (get score before guardrails) ──────────────────────
-    route_match = router.route(query, user_access_roles)
+    route_match = _get_router().route(query, user_access_roles)
 
     # ── 2. Input guardrails ──────────────────────────────────────────────────
     guard_result = _input_guards.check(

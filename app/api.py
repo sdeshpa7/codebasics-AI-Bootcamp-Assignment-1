@@ -34,7 +34,7 @@ def startup_event():
 
 # ── Employee CSV helpers ─────────────────────────────────────────────────────
 
-EMPLOYEES_CSV_PATH = "employees.csv"
+EMPLOYEES_CSV_PATH = "data/hr/employees.csv"
 
 # Admins are identified by email — NOT by access_role.
 # Their access_role (e.g. Engineering) still governs which documents they can query.

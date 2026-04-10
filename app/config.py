@@ -18,7 +18,7 @@ class Settings(BaseSettings):
 
     # --- Data paths ---
     data_dir: str = Field(default="data", description="Root directory containing the data folders")
-    employees_output_path: str = Field(default="employees.csv", description="Path to write the processed employee CSV")
+    employees_output_path: str = Field(default="data/hr/employees.csv", description="Path to write the processed employee CSV")
     embedding_model: str = Field(default="all-MiniLM-L6-v2", description="Sentence-transformers model name for encoding chunks")
     qdrant_collection: str = Field(default="finsolve_docs", description="Qdrant collection name")
     qdrant_batch_size: int = Field(default=100, description="Number of points per upsert batch")

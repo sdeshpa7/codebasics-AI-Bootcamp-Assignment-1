@@ -217,10 +217,10 @@ _BUSINESS_KEYWORDS: set[str] = {
     "payroll", "compensation", "profit", "loss", "quarter", "annual", "fiscal",
     "sprint", "incident", "sla", "deployment", "infrastructure", "engineering",
     "system", "architecture", "uptime", "latency",
-    "campaign", "marketing", "lead", "acquisition", "conversion", "brand",
-    "employee", "leave", "leaves", "pto", "vacation", "holiday", "policy", "onboarding", "appraisal", "hr", "benefits",
-    "strategy", "executive", "performance", "report", "forecast", "growth",
-    "department", "company", "finsolve", "team", "project", "customer", "sales",
+    "campaign", "marketing", "lead", "leads", "acquisition", "conversion", "brand",
+    "employee", "employees", "leave", "leaves", "pto", "vacation", "holiday", "holidays", "policy", "onboarding", "appraisal", "hr", "benefits",
+    "strategy", "executive", "performance", "report", "reports", "forecast", "growth",
+    "department", "company", "finsolve", "team", "project", "customer", "customers", "sales",
     "operations", "legal", "admin", "data", "technology",
 }
 

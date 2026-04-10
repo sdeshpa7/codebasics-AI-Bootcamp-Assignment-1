@@ -46,7 +46,9 @@ ROUTE_UTTERANCES: dict[str, list[str]] = {
     "Marketing": [
         "What was the Q1 marketing campaign performance?",
         "How much did we spend on customer acquisition?",
+        "How many new customers were acquired?",
         "Which campaigns generated the most leads?",
+        "How many new leads were generated?",
         "What is our brand positioning strategy?",
         "Show me the digital marketing ROI",
         "What is the customer lifetime value?",

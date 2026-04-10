@@ -2,6 +2,8 @@
 
 FinSolve is a production-grade Retrieval-Augmented Generation (RAG) system built to provide secure, grounded, and role-authorized answers from complex enterprise documents.
 
+A demo video titled Assignment-1_Demo-Sourabh_Deshpande.mp4 is provided in the root directory.
+
 ---
 
 ## 1. Project Objective
@@ -22,6 +24,19 @@ FinSolve uses a multi-tiered access model to manage data security. Access is det
 | **General** | **Public** | All active employees have access to company-wide documents like the Employee Handbook. |
 | **Contract/Intern** | **Highly Restricted** | Limited access with custom security messaging for out-of-bounds queries. |
 
+### User and Assigning Them User Roles
+
+A list of 500 users is provided in the hr_data.csv file of which 440 users are active with the remaining on notice, resigned or terminated. The active users are assigned roles based on their department and designation. A detailed list can be found in data/hr/employees.csv file with User Roles under the access_role column.
+
+For e.g., All employees within the HR department are provided with the access role of HR and all employees within the Finance department are provided with the access role of Finance. Similarly, all employees within the Data and Technology department are provided with the access role of Engineering and all employees within the Marketing department are provided with the access role of Marketing. C-Level access role is provided to all Full-time active employees with designation VP, irrespetive of department.
+
+### Admins
+
+5 employees are provided with the access role of Admin. There details can be found in the data/hr/employees.csv file.
+
+
+
+
 > [!IMPORTANT]
 > **Contractors and Interns** receive a specialized security block: *"🚫 Access denied: this information is not allowed to contractual employees and interns."*
 
@@ -29,7 +44,7 @@ FinSolve uses a multi-tiered access model to manage data security. Access is det
 
 ## 3. The Data Sources
 The system ingests and processes data from diverse enterprise sources:
-*   **HR Records**: A structured `employees.csv` containing IDs, roles, departments, and employment types.
+*   **HR Records**: A structured `data/hr/employees.csv` containing IDs, roles, departments, and employment types.
 *   **Departmental Documents**:
     *   **Finance**: Quarterly reports, budget forecasts (PDF/DOCX).
     *   **Marketing**: Campaign strategies, ROI reports (PDF/DOCX).
